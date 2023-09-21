@@ -15,6 +15,7 @@ INCLUDELIB user32.lib
 .data
     ; data declarations go here
     X DWORD ? ; Define X to store the result
+    Y DWORD ?;
 
 .code
 main PROC
@@ -23,7 +24,7 @@ main PROC
     mov eax, 0  ; Example: Initialize eax with a 0(you can change this)
     add eax, 4      ; Add 4 to eax
     imul eax, 3     ; Multiply eax by 3
-    mov X, eax      ; Store the result in X
+    mov Y, eax      ; Store the result in X
 
     call DumpRegs   ; Display registers in the console
 
