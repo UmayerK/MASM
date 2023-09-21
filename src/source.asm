@@ -13,16 +13,20 @@ INCLUDELIB kernel32.lib
 INCLUDELIB user32.lib
 
 .data
-    
-	; data declarations go here
+    Var1 DWORD 10000h;
+    Var2 DWORD 20000h;
+    ; data declarations go here
 
 .code
 main PROC
-	
-	; code goes here
-	call DumpRegs ; displays registers in console
 
-	exit
+    ; code goes here
+    mov eax, Var1
+    add eax, Var2
+	sub eax, 10000h
+    call DumpRegs ; displays registers in console
+
+    exit
 
 main ENDP
 END main
