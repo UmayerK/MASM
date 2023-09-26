@@ -53,7 +53,7 @@ main PROC
     call DumpRegs
     ; end of B
     ; Carry Flag = 0
-    ; Overflow Flag = 1 Generated as adding the numbers 2 and 7FFF exceeds 128 (after subtracting 1 ax register)
+    ; Overflow Flag = 1 Generated as adding the numbers 2 and 7FFF causes overflow as its 16 digits  and exceeds 32 thousand and ax is 64 thousand as its already full(after subtracting 1 ax register)
     ; Sign Flag = 1  Generated because the number  0 -1 is negative in cx register
     ; Zero Flag = 0
     ; CX = 0000
@@ -69,7 +69,7 @@ main PROC
     call DumpRegs
     ; end of C
     ; Carry Flag = 0
-    ; Overflow Flag = 1 Generated as adding the numbers  7FFEh + 22h causes overflow 
+    ; Overflow Flag = 1 Generated as adding the numbers  7FFEh + 22h to an already overflown number causes overflow as al is 8 bits and the FFFF plus anything is greater than what 8 bits can handle
     ; Sign Flag = 1 sf stays on as the most significant digit is 1
     ; Zero Flag = 0
     ; CX = 0000
@@ -86,9 +86,9 @@ main PROC
 
     call DumpRegs
     ; end of D
-    ; Carry Flag = 1 this occurs as there is a carry done when adding 72h and 32h
+    ; Carry Flag = 1 this occurs as there is a carry done when adding 72h and 32h This is as subtracting 128 and 1 does not make it so the number is small enough to overflow 
     ; Overflow Flag = 0
-    ; Sign Flag = 1 Generated because the number is negative when you subtract -128 -1 (bl register)
+    ; Sign Flag = 1 Generated because the number is negative -127 (bl register)
     ; Zero Flag = 0
     ; CX = 0000
     ; AL = 8C
