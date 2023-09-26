@@ -92,6 +92,8 @@ main PROC
     ; Zero Flag = 0
     ; CX = 0000
     ; AL = 8C
+;The final value for ECX=0000
+;The final value of AL  = 8C
 
     exit
 main ENDP
