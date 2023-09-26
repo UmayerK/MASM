@@ -1,6 +1,6 @@
 TITLE
 
-; Name: 
+; Name: Faraan Rashid
 ; Date: 
 ; ID: 
 ; Description: 
@@ -13,20 +13,87 @@ INCLUDELIB kernel32.lib
 INCLUDELIB user32.lib
 
 .data
-    Var1 DWORD 10000h;
-    Var2 DWORD 20000h;
-    ; data declarations go here
+    Rval SDWORD 22
+    Xval SDWORD 26
+    Yval SDWORD 30
+    Zval SDWORD 40
 
 .code
 main PROC
+    mov ax,1000h
+    inc ax
+    dec ax
+    mov eax,Xval
+    neg eax
+    mov ebx,Yval
+    sub ebx,Zval
+    add eax,ebx
+    mov Rval,eax
+    mov cx,1
+    sub cx,1
+    mov ax,0FFFFh
+    inc ax
+    mov ecx,0B9F6h
+    sub ecx,9874h
 
-    ; code goes here
-    mov eax, Var1
-    add eax, Var2
-	sub eax, 10000h
-    call DumpRegs ; displays registers in console
+    call DumpRegs
+    ; end of A
+    ; Carry Flag = 0
+    ; Overflow Flag = 0
+    ; Sign Flag = 0
+    ; Zero Flag = 0
+    ; CX = 0000
+    ; AL = 00
+
+    mov cx,0
+    sub cx,1
+    mov ax,7FFFh
+    add ax,2
+
+    call DumpRegs
+    ; end of B
+    ; Carry Flag = 0
+    ; Overflow Flag = 1
+    ; Sign Flag = 1
+    ; Zero Flag = 0
+    ; CX = 0000
+    ; AL = 01
+
+    mov al,0FFh
+    add al,1
+    mov al,+127
+    add al,1
+    mov ax,7FFEh
+    add ax,22h
+
+    call DumpRegs
+    ; end of C
+    ; Carry Flag = 0
+    ; Overflow Flag = 1
+    ; Sign Flag = 1
+    ; Zero Flag = 0
+    ; CX = 0000
+    ; AL = 20
+
+    mov al,-128
+    sub al,1
+    mov al,0DFh
+    add al,32h
+    mov al,72h
+    sub al,0E6h
+    mov bl,-127
+    dec bl
+
+    call DumpRegs
+    ; end of D
+    ; Carry Flag = 1
+    ; Overflow Flag = 0
+    ; Sign Flag = 1
+    ; Zero Flag = 0
+    ; CX = 0000
+    ; AL = 8C
 
     exit
-
 main ENDP
 END main
+﻿
