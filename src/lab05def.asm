@@ -1,9 +1,9 @@
 TITLE
 
 ; Name: Umayer Khan
-; Date: 24th October 2023
+; Date: 23th October 2023
 ; ID: 110105667
-; Description: Assignment 2, Section 2
+
 
 INCLUDE Irvine32.inc
 INCLUDELIB Irvine32.lib
