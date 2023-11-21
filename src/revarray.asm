@@ -17,13 +17,13 @@ INCLUDELIB user32.lib
 
 .code
 main PROC
-    mov esi,0
-    mov edi,SIZEOF array - TYPE array
-    mov ecx, LENGTHOF array / 2
+    mov esi, ;esi value is 0 
+    mov edi,SIZEOF array - TYPE array; 36 bytes because the last element will already be sorted  
+    mov ecx, LENGTHOF array / 2;; loops 5 times
 
 L1:
-    mov eax,array[esi]
-    xchg eax,array[edi]
+    mov eax,array[esi] ; first iteration makes esi point to 0 
+    xchg eax,array[edi] ; then switch edi which points to the last element
     mov array[esi],eax
 
     add esi, TYPE array
@@ -35,4 +35,3 @@ L1:
 
 main ENDP
 END main
-''

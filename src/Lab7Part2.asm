@@ -37,7 +37,7 @@ done1:
     cmp edx, ecx
     jle le2 
     jg a2
-    jmp done2
+    jmp done:
 a2:
     mov X, 2
 le2:
@@ -45,6 +45,7 @@ le2:
     mov X, 1
 
 done2:
+
 ;3
  mov val1, 15   ; Replace with your actual value for val1
     mov ecx, 10    ; Replace with your actual value for ecx

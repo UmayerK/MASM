@@ -23,21 +23,22 @@ MOV EAX , 1    ; first number in sequence
 
 CALL DumpRegs
 
-MOV EBX, 0     ;Initialize EBX
+MOV EBX, 1     ;Initialize EBX
 
-MOV EDX, 1 ;second number in sequence
+MOV EDX, ? ;second number in sequence
 
 MOV ECX, 6     ; set the counter register to 6
 
 L1:
 
-MOV EAX,EBX
+ADD ebx,eax   ; EbX = 1+1
+mov edx, ebx ; edx = 2
 
-ADD EAX,EDX   ; EAX = EBX+ EDX 2= 1+1
+
 
 CALL DumpRegs ; Display eax
 
-MOV EBX,EDX ;increase ebx to the previous edx in order to continue the sequence
+MOV EDX,EAX ;increase ebx to the previous edx in order to continue the sequence
 
 MOV EDX,EAX ;increase edx to the result of eax in oreder to continue the sequence
 

@@ -10,22 +10,45 @@ INCLUDELIB kernel32.lib
 INCLUDELIB user32.lib
 
 .data
+a SWORD 0
     array SWORD 3, 6, 1, 10, 20, -30, 40, 4   ; Change array initializers to start with positive values
     sentinel SWORD 0
 
 .code
 main PROC
-    mov esi, OFFSET array   ; Initialize esi with the address of array
-    mov ecx, LENGTHOF array ; Initialize ecx with the length of the array
-L1:
-    test WORD PTR [esi], 8000h  ; Test the sign bit
-    jns positive_value_found    ; Jump if not negative
-    jmp quit                   ; Quit if a negative value is found
-positive_value_found:
-    add esi, TYPE array   ; Move to the next position
-    loop L1               ; Continue loop if there are more elements
-    jnz quit              ; None found, quit
-quit:
+mov eax, A
+mov ebx, 10
+mov ecx, 9
+cmp ebx, ecx
+  jg j1:
+  jmp done1: 
+  j1: mov eax, 1
+  done1: 
+
+  mov edx, 1
+  mov ecx, 3
+  cmp edx ,ecx 
+  je equal: 
+  jmp done2:
+  je: mov x, 1
+  done2: 
+  mov x, 2
+;
+cmp val1, ecx
+jg next: 
+jmp done: 
+
+next:
+cmp ecx,edx
+jg finally:
+jmp done:
+
+finally:
+mov x, 1
+ret 
+done: 
+mov x,2
+ret
 main ENDP
 
 END main
